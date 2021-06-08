@@ -23,7 +23,7 @@ function Header() {
       <AppBar position="fixed" color="inherit">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Our Store
+            OUR STORE
           </Typography>
           <Button color="inherit">CART (0)</Button>
         </Toolbar>
