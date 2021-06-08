@@ -9,15 +9,17 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-
+import Container from '@material-ui/core/Container';
 
 import { activeCat, reset } from '../store/products.js';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: 345,
+    flexGrow: 1,
+    padding: theme.spacing(2)
   },
-});
+}));
 
 const ActiveProduct = props => {
   const classes = useStyles();
@@ -28,8 +30,9 @@ const ActiveProduct = props => {
           if (product.category === props.catReducer.activeCategory)
             return (
               <>
-                <Grid item xs={4}>
-                  <Grid container item xs={12} spacing={3}>
+              <Container maxWidth="md" component="main">
+                <Grid container spacing={2} direction="row" justify="flex-start" alignItems="flex-start">
+                  <Grid item xs={12} spacing={3}>
                     <Card className={classes.root}>
                       <CardActionArea>
                         <CardMedia
@@ -59,6 +62,7 @@ const ActiveProduct = props => {
                     </Card>
                   </Grid>
                 </Grid>
+                </Container>
               </>
             )
         })}
