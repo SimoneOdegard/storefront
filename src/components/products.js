@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
 import { activeCat, reset } from '../store/products.js';
+import { increment } from '../store/simple-cart.js';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 const ActiveProduct = props => {
   const classes = useStyles();
+  // console.log(props.cartReducer.cartTotal);
   return (
     <section>
       <ul>
@@ -52,7 +54,9 @@ const ActiveProduct = props => {
                         </CardContent>
                       </CardActionArea>
                       <CardActions>
-                        <Button size="small" color="primary">
+                        <Button 
+                        onClick={() => props.increment(product.name)}
+                        size="small" color="primary">
                           ADD TO CART
                     </Button>
                         <Button size="small" color="primary">
@@ -73,9 +77,10 @@ const ActiveProduct = props => {
 
 const mapStateToProps = state => ({
   catReducer: state.catReducer,
-  prodReducer: state.prodReducer
+  prodReducer: state.prodReducer,
+  cartReducer: state.cartReducer
 })
 
-const mapDispatchToProps = { activeCat, reset }
+const mapDispatchToProps = { activeCat, reset, increment }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActiveProduct);
