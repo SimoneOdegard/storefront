@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <Header />
-      <Categories />
       <Cart />
+      <Categories />
       <Products />
       <Footer />
     </>
