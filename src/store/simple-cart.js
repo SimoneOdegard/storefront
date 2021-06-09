@@ -1,5 +1,6 @@
 // setup of initial state
 let initialState = {
+  cartItems: [],
   cartTotal: 0
 }
 
@@ -9,7 +10,14 @@ export default (state = initialState, action) => {
 
   switch(type) {
     case 'INCREMENT':
-      return payload.disabled ? state : { ...state, cartTotal: state.cartTotal + 1 }
+      return payload.disabled ? state : { ...state, cartTotal: state.cartTotal + 1 };
+
+    case 'ADD':
+      let newState = {
+        cartItems: [...state.cartItems, payload],
+        cartTotal: state.cartTotal + 1
+      }
+      return newState;
 
     case 'RESET':
       return initialState;
@@ -23,6 +31,13 @@ export default (state = initialState, action) => {
 export const increment = (product) => {
   return {
     type: 'INCREMENT',
+    payload: product
+  }
+}
+
+export const add = (product) => {
+  return {
+    type: 'ADD',
     payload: product
   }
 }
