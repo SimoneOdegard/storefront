@@ -1,7 +1,5 @@
-import superagent from 'superagent';
-
 let initialState = {
-  apiProducts: [],
+  results: [],
 }
 
 // =========== REDUCER =========== //
@@ -10,6 +8,7 @@ export default (state = initialState, action) => {
 
   switch (type) {
     case 'GET':
+      // spread state. set payload to key of products that we're bringing in products: payload
       return payload;
 
     case 'PUT':

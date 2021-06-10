@@ -35,12 +35,12 @@ const ActiveProduct = props => {
   }, []);
 
   const classes = useStyles();
-  console.log('api products', props.apiReducer.apiProducts);
+  console.log('api products', props.apiReducer.results);
   return (
     <section>
       <ul>
-        {props.prodReducer.products.map(product => {
-          if (product.category === props.catReducer.activeCategory)
+        {props.apiReducer.results.map(product => {
+          // if (product.category === props.catReducer.activeCategory)
             return (
               <>
               <Container maxWidth="md" component="main">
@@ -92,12 +92,12 @@ const mapStateToProps = state => ({
   prodReducer: state.prodReducer,
   cartReducer: state.cartReducer,
   apiReducer: state.apiReducer
-})
+});
 
 const mapDispatchToProps = (dispatch, getState) => ({
   get: () => dispatch(actions.getRemoteData()),
   add: (product) => dispatch (add(product)),
   reset: () => dispatch(reset())
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActiveProduct);
