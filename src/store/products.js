@@ -1,4 +1,3 @@
-// setup of initial state
 let initialState = {
   products: [
     {
@@ -88,6 +87,7 @@ export default (state = initialState, action) => {
 
 
 // =========== ACTION =========== //
+
 export const activeCat = (name) => {
   return {
     type: 'ACTIVE CATEGORY',
