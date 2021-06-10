@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -11,8 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
-import { activeCat, reset } from '../store/products.js';
-import { increment, add} from '../store/simple-cart.js';
+// import { activeCat, reset } from '../store/products.js';
+import { add, reset } from '../store/simple-cart.js';
+import * as actions from '../store/api-actions.js';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,8 +24,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ActiveProduct = props => {
+
+  const fetchData = (e) => {
+    e && e.preventDefault();
+    props.get();
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const classes = useStyles();
-  // console.log(props.cartReducer.cartTotal);
+  console.log('api products', props.apiReducer.apiProducts);
   return (
     <section>
       <ul>
@@ -79,9 +90,14 @@ const ActiveProduct = props => {
 const mapStateToProps = state => ({
   catReducer: state.catReducer,
   prodReducer: state.prodReducer,
-  cartReducer: state.cartReducer
+  cartReducer: state.cartReducer,
+  apiReducer: state.apiReducer
 })
 
-const mapDispatchToProps = { activeCat, reset, increment, add }
+const mapDispatchToProps = (dispatch, getState) => ({
+  get: () => dispatch(actions.getRemoteData()),
+  add: (product) => dispatch (add(product)),
+  reset: () => dispatch(reset())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActiveProduct);
