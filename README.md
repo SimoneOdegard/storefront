@@ -26,3 +26,4 @@ redux
 - [PR 2](https://github.com/SimoneOdegard/storefront/pull/5) Applied styling
 - [PR 3](https://github.com/SimoneOdegard/storefront/pull/7) Items in the cart are added, increment is working
 - [PR 4](https://github.com/SimoneOdegard/storefront/pull/9) Applied styling to cart
+- [PR 5](https://github.com/SimoneOdegard/storefront/pull/11) Items are rendering to the page
