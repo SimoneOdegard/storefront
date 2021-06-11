@@ -35,14 +35,14 @@ const ActiveProduct = props => {
   }, []);
 
   const classes = useStyles();
-  console.log('api products', props.apiReducer.results);
+  // console.log('api products with class api', props.apiReducer.results);
+  console.log('api products', props.apiReducer);
   return (
     <section>
       <ul>
         {props.apiReducer.results.map(product => {
           // if (product.category === props.catReducer.activeCategory)
             return (
-              <>
               <Container maxWidth="md" component="main">
                 <Grid container spacing={2} direction="row" justify="flex-start" alignItems="flex-start">
                   <Grid item xs={12} spacing={3}>
@@ -79,7 +79,6 @@ const ActiveProduct = props => {
                   </Grid>
                 </Grid>
                 </Container>
-              </>
             )
         })}
       </ul>
