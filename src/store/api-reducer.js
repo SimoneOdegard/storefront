@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
   switch (type) {
     case 'GET':
       // spread state. set payload to key of products that we're bringing in products: payload
-      return payload;
+      return {...state, results: payload};
 
     case 'PUT':
       return payload;
