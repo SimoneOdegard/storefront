@@ -46,7 +46,7 @@ function SimpleCart(props) {
                     {product.price}
                   </Typography>
                   <CardActions>
-                    <Button size="small" onClick={() => props.remove(product)}>Remove</Button>
+                    <Button onClick={() => props.remove(product)} size="small">Remove</Button>
                   </CardActions>
                 </>
               )

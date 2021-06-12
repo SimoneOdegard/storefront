@@ -20,11 +20,17 @@ export default (state = initialState, action) => {
       return newState;
 
     case 'REMOVE':
-      let newStateRemove = {
-        cartItems: [...state.cartItems, payload],
-        cartTotal: state.cartTotal - 1
-      }
-      return newStateRemove;
+      const cartItems = [...state.cartItems]
+      let deleteItem = true;
+      const updatedCart = cartItems.filter((item) => {
+        if (item === payload && deleteItem) {
+          deleteItem = false;
+          return false;
+        } else {
+          return true;
+        }
+      })
+      return {...state, cartItems: [...updatedCart]};
 
     case 'RESET':
       return initialState;
