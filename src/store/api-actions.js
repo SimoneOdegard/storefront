@@ -22,3 +22,4 @@ export const getAction = data => {
     payload: data
   }
 }
+

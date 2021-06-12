@@ -21,6 +21,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     padding: theme.spacing(2)
   },
+  typography: {
+    overflow: 'auto',
+    maxHeight: 200,
+  }
 }));
 
 const ActiveProduct = props => {
@@ -56,6 +60,9 @@ const ActiveProduct = props => {
                         {product.name}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
+                        Inventory Count: {product.inventoryCount}
+                      </Typography>
+                      <Typography id="description" variant="body2" color="textSecondary" component="p">
                         {product.description}
                       </Typography>
                     </CardContent>
