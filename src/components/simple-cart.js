@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import { activeCat, reset } from '../store/products.js';
-import { increment, add } from '../store/simple-cart.js';
+import { increment, add, remove } from '../store/simple-cart.js';
 
 const useStyles = makeStyles({
   root: {
@@ -46,7 +46,7 @@ function SimpleCart(props) {
                     {product.price}
                   </Typography>
                   <CardActions>
-                    <Button size="small">Remove</Button>
+                    <Button size="small" onClick={() => props.remove(product)}>Remove</Button>
                   </CardActions>
                 </>
               )
@@ -64,6 +64,6 @@ const mapStateToProps = state => ({
   cartReducer: state.cartReducer
 })
 
-const mapDispatchToProps = { activeCat, reset, increment, add }
+const mapDispatchToProps = { activeCat, reset, increment, add, remove }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SimpleCart);

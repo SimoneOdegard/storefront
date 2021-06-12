@@ -8,7 +8,7 @@ let initialState = {
 export default (state = initialState, action) => {
   let { type, payload } = action;
 
-  switch(type) {
+  switch (type) {
     case 'INCREMENT':
       return payload.disabled ? state : { ...state, cartTotal: state.cartTotal + 1 };
 
@@ -18,6 +18,13 @@ export default (state = initialState, action) => {
         cartTotal: state.cartTotal + 1
       }
       return newState;
+
+    case 'REMOVE':
+      let newStateRemove = {
+        cartItems: [...state.cartItems, payload],
+        cartTotal: state.cartTotal - 1
+      }
+      return newStateRemove;
 
     case 'RESET':
       return initialState;
@@ -38,6 +45,13 @@ export const increment = (product) => {
 export const add = (product) => {
   return {
     type: 'ADD',
+    payload: product
+  }
+}
+
+export const remove = (product) => {
+  return {
+    type: 'REMOVE',
     payload: product
   }
 }

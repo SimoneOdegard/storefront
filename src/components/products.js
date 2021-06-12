@@ -56,6 +56,9 @@ const ActiveProduct = props => {
                         {product.name}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
+                        Inventory Count: {product.inventoryCount}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary" component="p">
                         {product.description}
                       </Typography>
                     </CardContent>

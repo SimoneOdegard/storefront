@@ -27,3 +27,4 @@ redux
 - [PR 3](https://github.com/SimoneOdegard/storefront/pull/7) Items in the cart are added, increment is working
 - [PR 4](https://github.com/SimoneOdegard/storefront/pull/9) Applied styling to cart
 - [PR 5](https://github.com/SimoneOdegard/storefront/pull/11) Items are rendering to the page
+- [PR 6](https://github.com/SimoneOdegard/storefront/pull/14) Items are rendering to the page with my API server. Items also render side by side.
