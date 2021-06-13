@@ -9,13 +9,14 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
 
 import { add, reset } from '../store/simple-cart.js';
 import * as actions from '../store/api-actions.js';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: 10,
+    margin: 5,
     display: 'inline-block',
     maxWidth: 300,
     flexGrow: 1,
@@ -41,7 +42,7 @@ const ActiveProduct = props => {
   const classes = useStyles();
   return (
     <section>
-      <Container maxWidth="md" component="main">
+      <Container maxWidth="lg" component="main">
         <ul>
           {props.apiReducer.results.map(product => {
             if (product.category === props.catReducer.activeCategory)
@@ -63,7 +64,11 @@ const ActiveProduct = props => {
                         Inventory Count: {product.inventoryCount}
                       </Typography>
                       <Typography id="description" variant="body2" color="textSecondary" component="p">
-                        {product.description}
+                        <div style={{ height: 250}}>
+                          <Box component="div" display="block" my={2} overflow="auto">
+                          {product.description}
+                          </Box>
+                        </div>
                       </Typography>
                     </CardContent>
                   </CardActionArea>

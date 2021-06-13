@@ -12,6 +12,7 @@ import { increment, add, remove } from '../store/simple-cart.js';
 const useStyles = makeStyles({
   root: {
     maxWidth: 250,
+    marginLeft: '10%',
     position: 'fixed',
   },
   title: {
