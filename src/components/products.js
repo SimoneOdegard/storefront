@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import { Link, NavLink } from 'react-router-dom';
 
 import { add, reset } from '../store/simple-cart.js';
 import * as actions from '../store/api-actions.js';
@@ -25,6 +26,10 @@ const useStyles = makeStyles(theme => ({
   typography: {
     overflow: 'auto',
     maxHeight: 200,
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'primary',
   }
 }));
 
@@ -79,7 +84,14 @@ const ActiveProduct = props => {
                       ADD TO CART
                     </Button>
                     <Button size="small" color="primary">
-                      VIEW DETAILS
+                      <NavLink 
+                      className={classes.link}
+                      to={{
+                        pathname: `/details/:${product._id}`,
+                        state: product,
+                        }}>
+                          VIEW DETAILS
+                      </NavLink>
                     </Button>
                   </CardActions>
                 </Card>

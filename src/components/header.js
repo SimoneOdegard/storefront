@@ -6,12 +6,17 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import { add } from '../store/simple-cart.js';
+import { Link, NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
     backgroundColor: theme.palette.white,
     color: theme.palette.black,
   },
+  link: {
+    textDecoration: 'none',
+    color: theme.palette.black,
+  }
 }))
 
 function Header(props) {
@@ -23,9 +28,10 @@ function Header(props) {
       <AppBar position="fixed" color="inherit">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            OUR STORE
+          OUR STORE
           </Typography>
-          <Button id="cartButton" color="inherit">CART ({props.cartReducer.cartItems.length})</Button>
+          <Button color="inherit"><NavLink className={classes.link} to="/">HOME</NavLink></Button>
+          <Button id="cartButton" color="inherit"><NavLink className={classes.link} to="/cart">CART ({props.cartReducer.cartItems.length})</NavLink></Button>
         </Toolbar>
       </AppBar>
     </>
