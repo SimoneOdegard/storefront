@@ -28,3 +28,4 @@ redux
 - [PR 4](https://github.com/SimoneOdegard/storefront/pull/9) Applied styling to cart
 - [PR 5](https://github.com/SimoneOdegard/storefront/pull/11) Items are rendering to the page
 - [PR 6](https://github.com/SimoneOdegard/storefront/pull/14) Items are rendering to the page with my API server. Items also render side by side.
+- [PR 7](https://github.com/SimoneOdegard/storefront/pull/15) Items are able to be deleted from cart.
