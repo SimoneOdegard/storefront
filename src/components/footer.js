@@ -21,6 +21,7 @@ function Footer() {
     <>
       <footer>
         <p> &copy; Simone Odegard 2021 401 Javascript</p>
+        <p>React + Redux + MaterialUI</p>
       </footer>
     </>
   )

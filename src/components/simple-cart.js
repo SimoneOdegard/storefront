@@ -45,7 +45,7 @@ function SimpleCart(props) {
                     {product.name}
                   </Typography>
                   <Typography className={classes.pos} color="textSecondary">
-                    {product.price}
+                    ${product.price}
                   </Typography>
                   <CardActions>
                     <Button onClick={() => props.remove(product)} size="small">Remove</Button>
