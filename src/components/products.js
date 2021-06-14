@@ -66,7 +66,7 @@ const ActiveProduct = props => {
                         {product.name}
                       </Typography>
                       <Typography variant="body2" color="textSecondary" component="p">
-                        Inventory Count: {product.inventoryCount}
+                        ${product.price}
                       </Typography>
                       <Typography id="description" variant="body2" color="textSecondary" component="p">
                         <div style={{ height: 250}}>

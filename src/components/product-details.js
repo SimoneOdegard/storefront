@@ -89,7 +89,7 @@ function ProductDetails(props) {
                 In stock: {selectedProduct.inventoryCount}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          {selectedProduct.price}
+          ${selectedProduct.price}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
           {selectedProduct.description}
